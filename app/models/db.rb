@@ -19,8 +19,12 @@ class Db < ActiveRecord::Base
     else
       return {
         title: title,
-        descriptions: descriptions.as_json,
-        categories: categories
+        alternate_titles: alternate_titles,
+        descriptions: descriptions,
+        categories: categorizations,
+        keywords: classifications,
+        publishers: publishers,
+        urls: urls
       }
     end
   end
