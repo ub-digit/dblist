@@ -11,4 +11,17 @@ class Db < ActiveRecord::Base
   def self.search(query)
 
   end
+
+  def as_json(options={})
+    if options[:full]
+      super()
+      
+    else
+      return {
+        title: title,
+        descriptions: descriptions.as_json,
+        categories: categories
+      }
+    end
+  end
 end
